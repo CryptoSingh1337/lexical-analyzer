@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tokens - Lexical Analyzer</title>
+    <link rel="icon" th:href="@{/logo/logo.svg}">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header th:insert="partials/layout.html :: header"></header>
+    <div class="min-h-screen pb-5">
+        <div class="container mx-auto w-11/12 max-w-xl">
+            <h1 class="text-5xl font-bold my-10 leading-snug text-center">To<span class="text-indigo-600">kens</span></h1>
+            <div th:if="${error != null}">
+                <img th:src="@{/images/error.svg}" class="my-10 mx-auto w-40 h-40" alt="error">
+                <h1 class="font-medium text-2xl text-center">Error: <span class="font-medium text-2xl text-center text-red-600" th:text="${error}">Error message</span></h1>
+            </div>
+            <div th:if="${tokens != null && tokens.size() > 0}">
+                <div class="mx-5">
+                    <div class="grid grid-cols-2 gap-4 border-b pb-5 mb-5">
+                        <div class="font-bold text-2xl text-center">Token Name</div>
+                        <div class="font-bold text-2xl text-center">Token Value</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4" th:each="token : ${tokens}">
+                        <div class="font-normal text-center text-xl" th:text="${token.name}">01</div>
+                        <div class="font-normal text-center text-xl" th:text="${token.value}">02</div>
+                    </div>
+                </div>
+                <h1 class="font-bold text-center text-2xl my-10">Total no.of to<span class="text-indigo-600">kens</span>: <span th:text="${tokens.size()}"></span></h1>
+            </div>
+        </div>
+    </div>
+    <footer th:insert="partials/layout.html :: footer"></footer>
+</body>
+</html>

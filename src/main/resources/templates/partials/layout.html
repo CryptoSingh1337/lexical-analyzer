@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="header">
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 justify-between">
+                <div class="flex flex-1 sm:items-stretch sm:justify-start">
+                    <a class="flex flex-shrink-0 items-center" th:href="@{/}">
+                        <img class="h-8 w-auto lg:block" th:src="@{/logo/logo.svg}" alt="logo" />
+                        <span class="text-white text-2xl font-bold font-sans ml-2">Lexical Analyzer</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div th:fragment="footer" class="mt-auto">
+    <footer class="relative flex h-28 items-center justify-center bg-gray-100 rounded-t-lg">
+        <p class="font-sans font-bold text-gray-500">Made with 💜 by Saransh Kumar</p>
+    </footer>
+</div>
+</body>
+</html>

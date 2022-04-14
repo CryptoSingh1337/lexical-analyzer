@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Lexical Analyzer</title>
+    <link rel="icon" th:href="@{/logo/logo.svg}">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const program = "#include<stdio.h>\n" +
+            "\n" +
+            "void factorial(int n) {\n" +
+            "    if (n == 1) return 1;\n" +
+            "    return n * factorial(n - 1);\n" +
+            "}\n" +
+            "\n" +
+            "int main() {\n" +
+            "    printf(\"%d\", factorial(5));\n" +
+            "    char a = 'A';\n" +
+            "    for (int i = 0; i < n; i++) {}\n" +
+            "    while (j < 10) {}\n" +
+            "    do {} while (i < 10);\n" +
+            "    return 0;\n" +
+            "}";
+
+        function handleSampleCodeClick() {
+            console.log("Hello");
+            document.getElementById("program").value = program;
+        }
+    </script>
+</head>
+<body>
+    <header th:insert="partials/layout.html :: header"></header>
+    <div class="flex h-screen items-center justify-center flex-col">
+        <h1 class="text-5xl font-bold my-10 text-center leading-snug">Breaks the program into <span class="text-indigo-600">Tokens.</span></h1>
+        <div class="container mx-auto w-11/12 rounded border p-5 shadow-lg max-w-xl">
+            <form th:action="@{/}" th:object="${program}" method="post">
+                <div th:if="${#fields.hasErrors('text')}">
+                    <h1 class="font-medium text-lg text-center text-black">Error: <span class="font-medium text-lg text-center text-red-600" th:text="${#fields.errors('text').get(0)}"></span></h1>
+                </div>
+                <div>
+                    <label for="program" class="block text-2xl font-medium text-gray-700">Program</label>
+                    <div class="my-4">
+                        <textarea th:field="*{text}" id="program" name="program" rows="15" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-5 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Enter your C program here."></textarea>
+                    </div>
+                </div>
+                <div class="px-4 py-3 text-right sm:px-6">
+                    <button type="button" onclick="handleSampleCodeClick()" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sample code</button>
+                    <button type="submit" class="inline-flex justify-center ml-2 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer th:insert="partials/layout.html :: footer"></footer>
+</body>
+</html>
