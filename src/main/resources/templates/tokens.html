@@ -17,14 +17,14 @@
                 <h1 class="font-medium text-2xl text-center">Error: <span class="font-medium text-2xl text-center text-red-600" th:text="${error}">Error message</span></h1>
             </div>
             <div th:if="${tokens != null && tokens.size() > 0}">
-                <div class="mx-5">
+                <div class="mx-5 border rounded-lg shadow-lg p-10">
                     <div class="grid grid-cols-2 gap-4 border-b pb-5 mb-5">
-                        <div class="font-bold text-2xl text-center">Token Name</div>
-                        <div class="font-bold text-2xl text-center">Token Value</div>
+                        <div class="font-bold text-2xl">Name</div>
+                        <div class="font-bold text-2xl text-right text-indigo-600">Value</div>
                     </div>
                     <div class="grid grid-cols-2 gap-4" th:each="token : ${tokens}">
-                        <div class="font-normal text-center text-xl" th:text="${token.name}">01</div>
-                        <div class="font-normal text-center text-xl" th:text="${token.value}">02</div>
+                        <div class="font-normal text-xl" th:text="${token.name}">01</div>
+                        <div class="font-normal text-right text-xl" th:text="${token.value}">02</div>
                     </div>
                 </div>
                 <h1 class="font-bold text-center text-2xl my-10">Total no.of to<span class="text-indigo-600">kens</span>: <span th:text="${tokens.size()}"></span></h1>
