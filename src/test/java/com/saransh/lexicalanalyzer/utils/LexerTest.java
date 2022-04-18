@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 class LexerTest {
 
     private final String program = "#include<stdio.h>\n" +
-            "\n" +
-            "void factorial(int n) {\n" +
+            "//program\n" +
+            "void factorial(int n) { //program to calculate factorial\n" +
             "    if (n == 1) return 1;\n" +
             "    return n * factorial(n - 1);\n" +
             "}\n" +
@@ -17,13 +17,13 @@ class LexerTest {
             "    for (int i = 0; i < n; i++) {}\n" +
             "    while (j < 10) {}\n" +
             "    do {} while (i < 10);\n" +
+            "    a=a^b;\n" +
             "    return 0;\n" +
             "}";
 
     @Test
     public void test() {
         Lexer lexer = new Lexer(program);
-
         System.out.println("Lexical Analysis");
         System.out.println("-----------------");
         while (!lexer.isExhausted()) {
@@ -36,5 +36,16 @@ class LexerTest {
         } else {
             System.out.println(lexer.errorMessage());
         }
+    }
+
+    private void preprocess(String text) {
+        String[] split = text.split("\n");
+        StringBuilder sb = new StringBuilder();
+        for (String s : split) {
+            System.out.println(s);
+            s = s.contains("//") ? s.substring(0, s.indexOf("//")) : s;
+            sb.append(s).append("\n");
+        }
+        System.out.println(sb);
     }
 }
