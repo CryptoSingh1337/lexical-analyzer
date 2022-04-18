@@ -16,6 +16,10 @@ public class LexicalAnalyzer {
         List<Lexeme> lexemes = new ArrayList<>();
         Lexer lexer = new Lexer(program);
         while (!lexer.isExhausted()) {
+            if (lexer.currentToken() == Token.TK_SINGLE_LINE_COMMENT) {
+                lexer.moveAhead();
+                continue;
+            }
             lexemes.add(Lexeme.builder()
                     .value(lexer.currentLexeme())
                     .name(lexer.currentToken().name())
