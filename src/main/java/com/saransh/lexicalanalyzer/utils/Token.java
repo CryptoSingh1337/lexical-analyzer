@@ -7,16 +7,18 @@ import java.util.regex.Pattern;
  * author: CryptoSingh1337
  */
 public enum Token {
-    TK_UNARY_INCREMENT("\\++"),
-    TK_UNARY_DECREMENT("\\--"),
-    TK_MINUS("\\-"),
-    TK_ADD("\\+"),
+    TK_SINGLE_LINE_COMMENT("\\/\\/.*"),
+    TK_UNARY_INCREMENT("\\+\\+"),
+    TK_UNARY_DECREMENT("\\-\\-"),
+    TK_MOD("%"),
     TK_MUL("\\*"),
     TK_DIV("\\/"),
-    TK_MOD("%"),
+    TK_ADD("\\+"),
+    TK_MINUS("\\-"),
     TK_NOT("~"),
     TK_OR("\\|"),
     TK_AND("&"),
+    TK_XOR("\\^"),
     TK_LOGICAL_NE("\\!="),
     TK_LOGICAL_OR("\\|\\|"),
     TK_LOGICAL_AND("\\&&"),
