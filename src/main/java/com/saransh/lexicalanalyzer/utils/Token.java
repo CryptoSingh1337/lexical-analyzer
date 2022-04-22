@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
  */
 public enum Token {
     TK_SINGLE_LINE_COMMENT("\\/\\/.*"),
+    TK_MULTI_LINE_COMMENT("\\/\\*.*\\*\\/"),
     TK_UNARY_INCREMENT("\\+\\+"),
     TK_UNARY_DECREMENT("\\-\\-"),
     TK_MOD("%"),
@@ -33,6 +34,8 @@ public enum Token {
     TK_OPEN_BRACKET("\\{"),
     TK_CLOSE_BRACKET("\\}"),
     TK_SEMI(";"),
+    TK_TERNARY("\\?"),
+    TK_COLON(":"),
     TK_COMMA(","),
     TK_KEY_RETURN("return"),
     TK_KEY_STRUCT("struct"),
@@ -48,7 +51,7 @@ public enum Token {
     TK_KEY_DOUBLE("double"),
     TK_KEY_CHAR("char"),
     SPECIAL_SYMBOL("#"),
-    EXTENSION("\\.h"),
+    DOT("\\."),
     STRING("\"(.)*\""),
     CHAR("\\'(.){1}\\'"),
     REAL("[-]?\\d+\\.\\d+"),

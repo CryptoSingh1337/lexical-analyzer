@@ -11,6 +11,7 @@ class LexerTest {
             "    return n * factorial(n - 1);\n" +
             "}\n" +
             "\n" +
+            "/* Multi line comment */" +
             "int main() {\n" +
             "    printf(\"%d\", factorial(5.35));\n" +
             "    char a = 'A';\n" +
@@ -18,6 +19,7 @@ class LexerTest {
             "    while (j < 10) {}\n" +
             "    do {} while (i < 10);\n" +
             "    a=a^b;\n" +
+            "    a = a > b ? a : b;" +
             "    return 0;\n" +
             "}";
 

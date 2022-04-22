@@ -8,18 +8,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         const program = "#include<stdio.h>\n" +
-            "// program\n" +
+            "//program\n" +
             "void factorial(int n) { //program to calculate factorial\n" +
             "    if (n == 1) return 1;\n" +
             "    return n * factorial(n - 1);\n" +
             "}\n" +
             "\n" +
+            "/* Multi line comment */\n" +
             "int main() {\n" +
-            "    printf(\"%d\", factorial(5));\n" +
+            "    printf(\"%d\", factorial(5.35));\n" +
             "    char a = 'A';\n" +
             "    for (int i = 0; i < n; i++) {}\n" +
             "    while (j < 10) {}\n" +
             "    do {} while (i < 10);\n" +
+            "    a=a^b;\n" +
+            "    a = a > b ? a : b;" +
             "    return 0;\n" +
             "}";
 

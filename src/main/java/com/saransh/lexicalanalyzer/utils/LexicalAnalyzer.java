@@ -16,7 +16,8 @@ public class LexicalAnalyzer {
         List<Lexeme> lexemes = new ArrayList<>();
         Lexer lexer = new Lexer(program);
         while (!lexer.isExhausted()) {
-            if (lexer.currentToken() == Token.TK_SINGLE_LINE_COMMENT) {
+            if (lexer.currentToken() == Token.TK_SINGLE_LINE_COMMENT ||
+                    lexer.currentToken() == Token.TK_MULTI_LINE_COMMENT) {
                 lexer.moveAhead();
                 continue;
             }
