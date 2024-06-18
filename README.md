@@ -2,7 +2,7 @@
 
 A web application to break the program into token. It was created as a open ended project.
 
-Live: [https://spring-lexical-analyzer.herokuapp.com/](https://spring-lexical-analyzer.herokuapp.com/)
+Live: [https://lexical-analyzer.onrender.com](https://lexical-analyzer.onrender.com/)
 
 ### Tech stack:
 
